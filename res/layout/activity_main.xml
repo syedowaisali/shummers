@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/menu_bg" >
+    
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/btn_add_new_work"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:onClick="gotoAddNewWork"
+        android:layout_weight="1" />
+    
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/btn_add_new_expense"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:onClick="gotoAddNewExp"
+        android:layout_weight="1" />
+    
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/btn_view_work"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:onClick="gotoViewWork"
+        android:layout_weight="1" />
+    
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/btn_view_expenses"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:onClick="gotoViewExp"
+        android:layout_weight="1" />
+
+</LinearLayout>

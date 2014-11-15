@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Shummers Beauty Parlour</string>
+    <string name="hint_client_name">Client Name</string>
+    <string name="hint_amount">Amount</string>
+	<string name="hint_desc">Description</string>
+    
+</resources>

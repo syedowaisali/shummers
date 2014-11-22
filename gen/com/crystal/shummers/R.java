@@ -1162,17 +1162,24 @@ containing a value of this type.
         public static final int tabMode=0x7f050002;
         public static final int title=0x7f05002b;
         public static final int top_action_bar=0x7f050020;
-        public static final int total_work_lv=0x7f05004c;
-        public static final int twl_header=0x7f050049;
-        public static final int twl_list_view=0x7f05004b;
-        public static final int twl_rule1=0x7f05004a;
-        public static final int twl_rule2=0x7f05004d;
+        public static final int total_work_lv=0x7f050050;
+        public static final int twl_date=0x7f050051;
+        public static final int twl_exp=0x7f050053;
+        public static final int twl_header=0x7f05004d;
+        public static final int twl_list_view=0x7f05004f;
+        public static final int twl_profit=0x7f050054;
+        public static final int twl_rule1=0x7f05004e;
+        public static final int twl_total=0x7f050052;
         public static final int txt_client_name=0x7f05003d;
         public static final int txt_desc=0x7f05003f;
         public static final int txt_price=0x7f05003e;
         public static final int up=0x7f050021;
         public static final int useLogo=0x7f050003;
         public static final int withText=0x7f05000c;
+        public static final int wti_date=0x7f050049;
+        public static final int wti_exp=0x7f05004b;
+        public static final int wti_profit=0x7f05004c;
+        public static final int wti_total=0x7f05004a;
     }
     public static final class integer {
         /**  The maximum number of action buttons that should be permitted within
@@ -1230,7 +1237,8 @@ containing a value of this type.
         public static final int support_simple_spinner_dropdown_item=0x7f03001b;
         public static final int work_item=0x7f03001c;
         public static final int work_list=0x7f03001d;
-        public static final int worl_list_total=0x7f03001e;
+        public static final int work_total_item=0x7f03001e;
+        public static final int worl_list_total=0x7f03001f;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;

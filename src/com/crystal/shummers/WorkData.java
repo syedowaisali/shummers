@@ -129,8 +129,9 @@ public class WorkData extends ShummersData {
 				String sql = "SELECT * FROM " + WORK_TABLE
 						+ " WHERE (" + WT_CREATED_ON + " >= date('" + start_date + "') AND " 
 						+ WT_CREATED_ON + " < date('" + end_date + "', '+1 day')) AND "
-						+ "(" + WT_CLIENT_NAME + " LIKE('%" + key + "%'))";
-				Log.d("SQL", sql);
+						+ "(" + WT_CLIENT_NAME + " LIKE('%" + key + "%')) "
+						+ "ORDER BY " + WT_CREATED_ON + " ASC ";
+				
 				// get readable database from super class
 				SQLiteDatabase db = this.getReadableDatabase();
 				Cursor cursor = db.rawQuery(sql, null);
@@ -208,5 +209,60 @@ public class WorkData extends ShummersData {
 		SQLiteDatabase db = this.getWritableDatabase();
 		Cursor cursor = db.rawQuery(sql, null);
 		cursor.close();
+	}
+	
+	// get total work with calculate
+	public List<TotalWork> getTotalWork(String key, String start_date, String end_date){
+		
+		String sql = "SELECT "
+				   + "w." + WT_CLIENT_NAME + ", "
+				   + "date(w.created_on) AS created_on, "
+				   + "sum(w.amount) AS total, "
+				   + "IFNULL(e.expense, 0) AS expense, "
+				   + "(sum(w.amount) - IFNULL(e.expense, 0)) AS profit "
+				   + ""
+				   + "FROM work as w"
+				   + ""
+				   + "	LEFT JOIN ( "
+				   + "		SELECT date(created_on) AS created_on, sum(IFNULL(amount, 0)) AS expense "
+				   + "		FROM expense "
+				   + "		GROUP BY date(created_on) "
+				   + ") AS e ON date(e.created_on) = date(w.created_on) "
+				   + ""
+				   + "WHERE (date(w.created_on) >= date('" + start_date + "') AND date(w.created_on) <= date('" + end_date + "')) "
+				   + "AND (w." + WT_CLIENT_NAME + " LIKE('%" + key + "%')) "
+				   + "GROUP BY date(w.created_on) "
+				   + "ORDER BY w.created_on ";
+						
+						
+		Log.d("SQL", sql);
+		// get readable database from super class
+		SQLiteDatabase db = this.getReadableDatabase();
+		Cursor cursor = db.rawQuery(sql, null);
+		
+		// create work list object
+		List<TotalWork> work_list = new ArrayList<TotalWork>();
+		
+		// looping through all works rows and add to work list
+		if(cursor.moveToFirst()){
+			do{
+				// create work object
+				TotalWork totalWork = new TotalWork();
+				
+				totalWork.setDate(cursor.getString(cursor.getColumnIndex(WT_CREATED_ON)));
+				totalWork.setTotal(cursor.getInt(cursor.getColumnIndex("total")));
+				totalWork.setExpense(cursor.getInt(cursor.getColumnIndex("expense")));
+				totalWork.setProfit(cursor.getInt(cursor.getColumnIndex("profit")));
+				
+				// work to work list
+				work_list.add(totalWork);
+			}
+			while(cursor.moveToNext());
+		}
+		
+		// close cursor
+		cursor.close();
+	
+		return work_list;
 	}
 }

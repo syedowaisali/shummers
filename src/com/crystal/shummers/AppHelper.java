@@ -1,10 +1,14 @@
 package com.crystal.shummers;
 
 import java.io.ByteArrayOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -14,11 +18,17 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Bitmap.Config;
 import android.graphics.PorterDuff.Mode;
+import android.net.ParseException;
 import android.util.Base64;
+import android.util.Log;
 
 public class AppHelper {
 	
 	public static final String MY_PREFERENCE = "com.crystal.shummers.MyPreference";
+	
+	public AppHelper(){
+		
+	}
 	
 	// validate email address
 	public static boolean isValidEmail(String email){
@@ -95,5 +105,26 @@ public class AppHelper {
 	    }
 	    
 	    return ar;
+	}
+
+	// date format
+	@SuppressLint("SimpleDateFormat")
+	public static String formatDate(String dateString, String format){
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	    Date convertedDate = new Date();
+	    try {
+	        convertedDate = dateFormat.parse(dateString);
+	    } catch (ParseException e) {
+	        // TODO Auto-generated catch block
+	        e.printStackTrace();
+	    } catch (java.text.ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
+	    SimpleDateFormat postFormater = new SimpleDateFormat(format);
+	    String newDateStr = postFormater.format(convertedDate);
+	    return newDateStr;
 	}
 }

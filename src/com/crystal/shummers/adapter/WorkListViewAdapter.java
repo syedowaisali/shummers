@@ -2,6 +2,7 @@ package com.crystal.shummers.adapter;
 
 import java.util.List;
 
+import com.crystal.shummers.AppHelper;
 import com.crystal.shummers.R;
 import com.crystal.shummers.Work;
 import com.crystal.shummers.WorkData;
@@ -77,7 +78,7 @@ public class WorkListViewAdapter extends BaseAdapter{
 		
 		// setting all values in listview
 
-		holder.date_label.setText(item.getCreatedOn());
+		holder.date_label.setText(AppHelper.formatDate(item.getCreatedOn(), "MMM dd, yyyy"));
 		holder.amount_label.setText(String.valueOf(item.getAmount()));
 		holder.client_label.setText(item.getClient());
 		holder.desc_label.setText(item.getWorkDesc());

@@ -69,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="51dp"
         android:layout_below="@id/twl_rule1">
         
         <ListView 
@@ -83,20 +83,64 @@
     
     <!-- horizonal rule -->
     <LinearLayout 
-        android:id="@+id/twl_rule2"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:background="#25a0ff"
         android:orientation="horizontal"
-        android:layout_below="@id/twl_list_view">
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true">
     </LinearLayout>
     
     <!-- footer section -->
 	<LinearLayout 
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true">
+        
+	    <!-- date heading -->
+        <TextView 
+            android:id="@+id/twl_date"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Date"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:textSize="15sp"
+            android:gravity="center"/>
+        
+        <!-- total work heading -->
+        <TextView 
+            android:id="@+id/twl_total"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="0"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:gravity="center"/>
+        
+        <!-- total expense heading -->
+        <TextView 
+            android:id="@+id/twl_exp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="0"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:gravity="center"/>
+        
+        <!-- total profit -->
+        <TextView
+            android:id="@+id/twl_profit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="0"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:gravity="center"/>
         
     </LinearLayout>
 </RelativeLayout>

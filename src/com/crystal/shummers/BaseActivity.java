@@ -21,6 +21,7 @@ public abstract class BaseActivity extends ActionBarActivity{
 	
 	SharedPrefs sp = SharedPrefs.getInstance();
 	ConnectionDetector cd;
+	AppHelper appHelper;
 	WorkData workData;
 	ProgressDialog pDialog;
 	ServiceHandler sh;
@@ -36,6 +37,7 @@ public abstract class BaseActivity extends ActionBarActivity{
 		super.onCreate(savedInstanceState);
 		sp.init(this);
 		cd = new ConnectionDetector(this);
+		appHelper = new AppHelper();
 		workData = new WorkData(this);
 		// creating service handler class instance
 		sh = new ServiceHandler();

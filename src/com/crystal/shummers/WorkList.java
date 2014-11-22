@@ -181,6 +181,7 @@ public class WorkList extends BaseActivity implements OnDateSetListener {
         
     	adapter = new WorkListViewAdapter(this, workItems);
         lv.setAdapter(adapter);
+        
 	}
 	 
 	public void noItem(){
@@ -224,7 +225,10 @@ public class WorkList extends BaseActivity implements OnDateSetListener {
         	
         	if(workData.getWorksCount() > 0){
         		is_data = true;
-        		items = workData.getAllWorks();
+        		String search = searchText.getText().toString();
+        		String s_date = s_year + "-" + ((s_month < 10) ? "0" + s_month : s_month) + "-" + ((s_day < 10) ? "0" + s_day : s_day);
+        		String e_date = e_year + "-" + ((e_month < 10) ? "0" + e_month : e_month) + "-" + ((e_day < 10) ? "0" + e_day : e_day);
+        		items = workData.getSearchWork(search, s_date, e_date);
         	}
  
             return null;

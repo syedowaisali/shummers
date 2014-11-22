@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000" >
+	
+    <!-- header section -->
+    <LinearLayout 
+        android:id="@+id/twl_header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        
+        <!-- date heading -->
+        <TextView 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Date"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:gravity="center"/>
+        
+        <!-- total work heading -->
+        <TextView 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Total"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:gravity="center"/>
+        
+        <!-- total expense heading -->
+        <TextView 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Expense"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:gravity="center"/>
+        
+        <!-- total profit -->
+        <TextView 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Profit"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:gravity="center"/>
+        
+    </LinearLayout>
+    
+    <!-- horizonal rule -->
+    <LinearLayout 
+        android:id="@+id/twl_rule1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#25a0ff"
+        android:orientation="horizontal"
+        android:layout_below="@id/twl_header">
+    </LinearLayout>
+    
+    <!-- list section -->
+    <LinearLayout
+        android:id="@+id/twl_list_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="52dp"
+        android:layout_below="@id/twl_rule1">
+        
+        <ListView 
+            android:id="@+id/total_work_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            
+        </ListView>
+        
+    </LinearLayout>
+    
+    <!-- horizonal rule -->
+    <LinearLayout 
+        android:id="@+id/twl_rule2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#25a0ff"
+        android:orientation="horizontal"
+        android:layout_below="@id/twl_list_view">
+    </LinearLayout>
+    
+    <!-- footer section -->
+	<LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        
+    </LinearLayout>
+</RelativeLayout>

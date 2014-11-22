@@ -52,7 +52,7 @@ public class AddNewWork extends BaseActivity implements OnDateSetListener {
 			
 			// create new work object
 			Work work = new Work();
-			work.setCreatedOn(this.year + "-" + this.month + "-" + this.day);
+			work.setCreatedOn(this.year + "-" + ((this.month < 10) ? "0" + this.month : this.month) + "-" + ((this.day < 10) ? "0" + this.day : this.day));
 			work.setClient(client_name.getText().toString());
 			work.setAmount(Integer.parseInt(amount.getText().toString()));
 			work.setWorkDesc(desc.getText().toString());
@@ -79,7 +79,7 @@ public class AddNewWork extends BaseActivity implements OnDateSetListener {
 	protected Dialog onCreateDialog(int id) {
 		// TODO Auto-generated method stub
 		if (id == 999) {
-			return new DatePickerDialog(this, this, year, month, day);
+			return new DatePickerDialog(this, this, year, (month - 1), day);
 		}
 		return null;
 	}

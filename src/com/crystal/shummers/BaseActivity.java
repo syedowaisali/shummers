@@ -93,6 +93,11 @@ public abstract class BaseActivity extends ActionBarActivity{
 		overridePendingTransition (R.anim.open_next, R.anim.close_main);
 	}
 	
+	public void gotoActivity(Intent intent){
+		startActivity(intent);
+		overridePendingTransition (R.anim.open_next, R.anim.close_main);
+	}
+	
 	// check internet connection
 	public boolean isNetConnect(){
 		return cd.isConnectingToInternet();

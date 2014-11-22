@@ -1162,6 +1162,11 @@ containing a value of this type.
         public static final int tabMode=0x7f050002;
         public static final int title=0x7f05002b;
         public static final int top_action_bar=0x7f050020;
+        public static final int total_work_lv=0x7f05004c;
+        public static final int twl_header=0x7f050049;
+        public static final int twl_list_view=0x7f05004b;
+        public static final int twl_rule1=0x7f05004a;
+        public static final int twl_rule2=0x7f05004d;
         public static final int txt_client_name=0x7f05003d;
         public static final int txt_desc=0x7f05003f;
         public static final int txt_price=0x7f05003e;
@@ -1225,6 +1230,7 @@ containing a value of this type.
         public static final int support_simple_spinner_dropdown_item=0x7f03001b;
         public static final int work_item=0x7f03001c;
         public static final int work_list=0x7f03001d;
+        public static final int worl_list_total=0x7f03001e;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
@@ -2653,7 +2659,7 @@ containing a value of this type.
          */
         public static final int[] MenuView = {
             0x010100ae, 0x0101012c, 0x0101012d, 0x0101012e,
-            0x0101012f, 0x01010130, 0x01010131, 0x01010435
+            0x0101012f, 0x01010130, 0x01010131, 0x01010438
         };
         /**
           <p>

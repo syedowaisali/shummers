@@ -7,6 +7,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class WorkData extends ShummersData {
 
@@ -121,6 +122,44 @@ public class WorkData extends ShummersData {
 		cursor.close();
 		
 		return work_list;
+	}
+	
+	public List<Work> getSearchWork(String key, String start_date, String end_date){
+		// select all work query
+				String sql = "SELECT * FROM " + WORK_TABLE
+						+ " WHERE (" + WT_CREATED_ON + " >= date('" + start_date + "') AND " 
+						+ WT_CREATED_ON + " < date('" + end_date + "', '+1 day')) AND "
+						+ "(" + WT_CLIENT_NAME + " LIKE('%" + key + "%'))";
+				Log.d("SQL", sql);
+				// get readable database from super class
+				SQLiteDatabase db = this.getReadableDatabase();
+				Cursor cursor = db.rawQuery(sql, null);
+				
+				// create work list object
+				List<Work> work_list = new ArrayList<Work>();
+				
+				// looping through all works rows and add to work list
+				if(cursor.moveToFirst()){
+					do{
+						// create work object
+						Work work = new Work();
+						
+						work.setId(cursor.getInt(cursor.getColumnIndex(WT_ID)));
+						work.setCreatedOn(cursor.getString(cursor.getColumnIndex(WT_CREATED_ON)));
+						work.setClient(cursor.getString(cursor.getColumnIndex(WT_CLIENT_NAME)));
+						work.setAmount(cursor.getInt(cursor.getColumnIndex(WT_AMOUNT)));
+						work.setWorkDesc(cursor.getString(cursor.getColumnIndex(WT_WORK_DESC)));
+						
+						// work to work list
+						work_list.add(work);
+					}
+					while(cursor.moveToNext());
+				}
+				
+				// close cursor
+				cursor.close();
+				
+				return work_list;
 	}
 	
 	// get works count

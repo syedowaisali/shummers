@@ -8,28 +8,29 @@ import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-
 
 import com.crystal.shummers.adapter.WorkListViewAdapter;
 
 public class WorkList extends BaseActivity implements OnDateSetListener {
 	
-	private static final int START_DATE = 0;
-	private static final int END_DATE = 1;
-	private static final int DATE_DIALOG_ID = 999;
+	private static final int START_DATE = 998;
+	private static final int END_DATE = 999;
 	
 	private Calendar calStart, calEnd;
 	private TextView tvStartDate;
 	private TextView tvEndDate;
+	private EditText searchText;
 	
 	private int s_year, s_month, s_day, e_year, e_month, e_day;
-	private int current_picker;
+	private int current_picker = START_DATE;
 	
 	ListView lv;
 	public static WorkListViewAdapter adapter;
@@ -48,6 +49,7 @@ public class WorkList extends BaseActivity implements OnDateSetListener {
 		
 		tvStartDate = (TextView) findViewById(R.id.sw_start_date);
 		tvEndDate = (TextView) findViewById(R.id.sw_end_date);
+		searchText = (EditText) findViewById(R.id.search_key);
 		
 		calStart = Calendar.getInstance();
 		calEnd = Calendar.getInstance();
@@ -77,14 +79,14 @@ public class WorkList extends BaseActivity implements OnDateSetListener {
 	@SuppressWarnings("deprecation")
 	public void selStartDate(View v){
 		current_picker = START_DATE;
-		showDialog(DATE_DIALOG_ID);
+		showDialog(START_DATE);
 	}
 	
 	// open date picker
 	@SuppressWarnings("deprecation")
 	public void selEndDate(View v){
 		current_picker = END_DATE;
-		showDialog(DATE_DIALOG_ID);
+		showDialog(END_DATE);
 	}
 	
 	// show start date
@@ -95,15 +97,15 @@ public class WorkList extends BaseActivity implements OnDateSetListener {
 	@Override
 	protected Dialog onCreateDialog(int id) {
 		// TODO Auto-generated method stub
-		if (id == 999) {
-			if(current_picker == START_DATE){
-				return new DatePickerDialog(this, this, s_year, s_month, s_day);
-			}
-			else{
-				return new DatePickerDialog(this, this, e_year, e_month, e_day);
-			}
-			
+		if (id == START_DATE) {
+			return new DatePickerDialog(this, this, s_year, (s_month - 1), s_day);
 		}
+		
+		// else current date picker is end date
+		else if(id == END_DATE){
+			return new DatePickerDialog(this, this, e_year, (e_month - 1), e_day);
+		}
+	
 		return null;
 	}
 	@Override
@@ -127,7 +129,40 @@ public class WorkList extends BaseActivity implements OnDateSetListener {
 	}
 	
 	public void searchWork(View v){
+		String search = searchText.getText().toString();
+		String s_date = s_year + "-" + ((s_month < 10) ? "0" + s_month : s_month) + "-" + ((s_day < 10) ? "0" + s_day : s_day);
+		String e_date = e_year + "-" + ((e_month < 10) ? "0" + e_month : e_month) + "-" + ((e_day < 10) ? "0" + e_day : e_day);
 		
+		try{
+
+			// clear list view
+			workItems.clear();
+			adapter.notifyDataSetChanged();
+			
+			for(Work item : workData.getSearchWork(search, s_date, e_date)){
+				workItems.add(item);
+			}
+			
+			adapter.notifyDataSetChanged();
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	public void workTotal(View v){
+		String search = searchText.getText().toString();
+		String s_date = s_year + "-" + ((s_month < 10) ? "0" + s_month : s_month) + "-" + ((s_day < 10) ? "0" + s_day : s_day);
+		String e_date = e_year + "-" + ((e_month < 10) ? "0" + e_month : e_month) + "-" + ((e_day < 10) ? "0" + e_day : e_day);
+		
+		Bundle bundle = new Bundle();
+		bundle.putString("search", search);
+		bundle.putString("start_date", s_date);
+		bundle.putString("end_date", e_date);
+		
+		Intent intent = new Intent(this, WorkListTotal.class);
+		intent.putExtras(bundle);
+		gotoActivity(intent);
 	}
 	
 	private void build(){

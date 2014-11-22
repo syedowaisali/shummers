@@ -6,7 +6,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="100dp"
         android:orientation="vertical"
         android:background="#000" >
         
@@ -46,7 +46,7 @@
                 android:id="@+id/search_key"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:hint="Client Name, Amount"
+                android:hint="Client Name"
                 android:layout_weight="1" />
             
             <Button
@@ -55,6 +55,13 @@
                 android:layout_weight="0.5"
                 android:text="Search"
                 android:onClick="searchWork" />
+            
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:text="Total"
+                android:onClick="workTotal" />
             
         </LinearLayout>
         
@@ -90,9 +97,5 @@
 	            android:text="Nov 14, 2014" />
 	        
         </LinearLayout>
-        
-        
-        
     </LinearLayout>
-    
 </RelativeLayout>

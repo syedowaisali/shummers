@@ -12,7 +12,7 @@ public class Setting {
 	
 	
 	// set 1 second to splash screen time out
-	public static final int SPLASH_TIMEOUT = 4000;
+	public static final int SPLASH_TIMEOUT = 1000;
 	
 	// web service url
 	public static final String WEB_URL = "http://www.mypromoanimation.com/dic/web_service";

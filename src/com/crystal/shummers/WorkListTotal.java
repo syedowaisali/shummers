@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.crystal.androidtoolkit.AppHelper;
 import com.crystal.shummers.adapter.WorkListTotalAdapter;
 
 public class WorkListTotal extends BaseActivity {

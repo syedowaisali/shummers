@@ -3,6 +3,11 @@ package com.crystal.shummers;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.crystal.androidtoolkit.AppHelper;
+import com.crystal.androidtoolkit.ConnectionDetector;
+import com.crystal.androidtoolkit.ServiceHandler;
+import com.crystal.androidtoolkit.SharedPrefs;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -36,7 +41,7 @@ public abstract class BaseActivity extends ActionBarActivity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		sp.init(this);
+		sp.init(this, Setting.MY_PREFERENCE);
 		cd = new ConnectionDetector(this);
 		appHelper = new AppHelper();
 		workData = new WorkData(this);

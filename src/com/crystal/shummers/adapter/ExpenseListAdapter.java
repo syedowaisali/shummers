@@ -2,7 +2,7 @@ package com.crystal.shummers.adapter;
 
 import java.util.List;
 
-import com.crystal.shummers.AppHelper;
+import com.crystal.androidtoolkit.AppHelper;
 import com.crystal.shummers.Expense;
 import com.crystal.shummers.ExpenseData;
 import com.crystal.shummers.ExpenseList;

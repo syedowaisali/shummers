@@ -3,6 +3,8 @@ package com.crystal.shummers;
 
 public class Setting {
 	
+	public static final String MY_PREFERENCE = "com.crystal.shummers.MyPreference";
+	
 	// status code
 	public static final int ERROR = 0;
 	public static final int SUCCESS = 1;
@@ -12,7 +14,7 @@ public class Setting {
 	
 	
 	// set 1 second to splash screen time out
-	public static final int SPLASH_TIMEOUT = 1000;
+	public static final int SPLASH_TIMEOUT = 3000;
 	
 	// web service url
 	public static final String WEB_URL = "http://www.mypromoanimation.com/dic/web_service";

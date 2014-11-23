@@ -2,7 +2,7 @@ package com.crystal.shummers.adapter;
 
 import java.util.List;
 
-import com.crystal.shummers.AppHelper;
+import com.crystal.androidtoolkit.AppHelper;
 import com.crystal.shummers.R;
 import com.crystal.shummers.Work;
 import com.crystal.shummers.WorkData;

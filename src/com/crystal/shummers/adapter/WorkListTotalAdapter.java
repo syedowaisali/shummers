@@ -14,11 +14,13 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class WorkListTotalAdapter extends BaseAdapter{
@@ -66,6 +68,7 @@ public class WorkListTotalAdapter extends BaseAdapter{
 			vi = inflater.inflate(R.layout.work_total_item, null);
 			holder = new ViewHolder();
 			
+			holder.wrapper = (LinearLayout) vi.findViewById(R.id.wti_wrapper);
 			holder.date_label = (TextView) vi.findViewById(R.id.wti_date);
 			holder.total = (TextView) vi.findViewById(R.id.wti_total);
 			holder.expense = (TextView) vi.findViewById(R.id.wti_exp);
@@ -79,6 +82,9 @@ public class WorkListTotalAdapter extends BaseAdapter{
 		
 		// setting all values in listview
 		
+		String color_code = ((position % 2) == 0) ? "#110000" : "#000011";
+		
+		holder.wrapper.setBackgroundColor(Color.parseColor(color_code));
 		holder.date_label.setText(AppHelper.formatDate(item.getCreatedOn(), "MMM dd, yyyy"));
 		holder.total.setText(String.valueOf(item.getTotal()));
 		holder.expense.setText(String.valueOf(item.getExpense()));
@@ -88,6 +94,7 @@ public class WorkListTotalAdapter extends BaseAdapter{
 	}
 	
 	static class ViewHolder{
+		LinearLayout wrapper;
 		TextView date_label;
 		TextView total;
 		TextView expense;

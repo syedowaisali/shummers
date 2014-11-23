@@ -3,7 +3,6 @@ package com.crystal.shummers;
 import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -20,7 +19,6 @@ import android.graphics.Bitmap.Config;
 import android.graphics.PorterDuff.Mode;
 import android.net.ParseException;
 import android.util.Base64;
-import android.util.Log;
 
 public class AppHelper {
 	

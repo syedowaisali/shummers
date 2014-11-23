@@ -36,6 +36,7 @@
 	            android:layout_marginLeft="10dp"
 	            android:layout_marginRight="10dp"
 	            android:layout_marginTop="20dp"
+	            android:textColor="#000"
 	            android:hint="@string/hint_client_name"
 	            android:background="@drawable/text_bg"/>
 	        
@@ -47,6 +48,7 @@
 	            android:layout_marginRight="10dp"
 	            android:layout_marginTop="20dp"
 	            android:hint="@string/hint_amount"
+	            android:textColor="#000"
 	            android:inputType="number"
 	            android:background="@drawable/text_bg"/>
 	        
@@ -59,6 +61,7 @@
 	            android:layout_marginTop="20dp"
 	            android:hint="@string/hint_desc"
 	            android:inputType="textMultiLine"
+	            android:textColor="#000"
 	            android:gravity="top|left"
 	        	android:layout_marginBottom="20dp"
 	            android:background="@drawable/text_bg" />

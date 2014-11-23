@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.crystal.shummers.adapter.ExpenseListAdapter;
 import com.crystal.shummers.adapter.WorkListViewAdapter;
 
 public class WorkList extends BaseActivity implements OnDateSetListener {
@@ -134,16 +135,31 @@ public class WorkList extends BaseActivity implements OnDateSetListener {
 		String e_date = e_year + "-" + ((e_month < 10) ? "0" + e_month : e_month) + "-" + ((e_day < 10) ? "0" + e_day : e_day);
 		
 		try{
-
-			// clear list view
-			workItems.clear();
-			adapter.notifyDataSetChanged();
+			
+			yesItems();
+			
+			if(workItems.size() > 0){
+				// clear list view
+				workItems.clear();
+				adapter.notifyDataSetChanged();
+			}
 			
 			for(Work item : workData.getSearchWork(search, s_date, e_date)){
 				workItems.add(item);
 			}
 			
-			adapter.notifyDataSetChanged();
+			if(workItems.size() > 0){
+				if(lv.getAdapter() == null){
+					adapter = new WorkListViewAdapter(this, workItems);
+					lv.setAdapter(adapter);
+				}
+				else{
+					adapter.notifyDataSetChanged();
+				}
+			}
+			else{
+				noItem();
+			}
 		}
 		catch(Exception ex){
 			ex.printStackTrace();
@@ -163,6 +179,13 @@ public class WorkList extends BaseActivity implements OnDateSetListener {
 		Intent intent = new Intent(this, WorkListTotal.class);
 		intent.putExtras(bundle);
 		gotoActivity(intent);
+	}
+	
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		super.onBackPressed();
+		overridePendingTransition (R.anim.open_main, R.anim.close_next);
 	}
 	
 	private void build(){
@@ -187,10 +210,21 @@ public class WorkList extends BaseActivity implements OnDateSetListener {
 	public void noItem(){
 		
 		// log message
-		log("Work List", "no work found works");
+		log("Work List", "no work found.");
+		
 		lv.setVisibility(View.GONE);
 		TextView emptyView = (TextView) findViewById(R.id.empty_works);
 		emptyView.setVisibility(View.VISIBLE);
+	}
+	
+	public void yesItems(){
+		
+		// log message
+		log("Work List", "work found works");
+		
+		TextView emptyView = (TextView) findViewById(R.id.empty_works);
+		emptyView.setVisibility(View.GONE);
+		lv.setVisibility(View.VISIBLE);
 	}
 	
 	public static void notifyAdapter(){
@@ -222,17 +256,16 @@ public class WorkList extends BaseActivity implements OnDateSetListener {
  
         protected Void doInBackground(Void... arg0) {
         	
-        	
-        	if(workData.getWorksCount() > 0){
+        	String search = searchText.getText().toString();
+    		String s_date = s_year + "-" + ((s_month < 10) ? "0" + s_month : s_month) + "-" + ((s_day < 10) ? "0" + s_day : s_day);
+    		String e_date = e_year + "-" + ((e_month < 10) ? "0" + e_month : e_month) + "-" + ((e_day < 10) ? "0" + e_day : e_day);
+    		items = workData.getSearchWork(search, s_date, e_date);
+    		
+        	if(items.size() > 0){
         		is_data = true;
-        		String search = searchText.getText().toString();
-        		String s_date = s_year + "-" + ((s_month < 10) ? "0" + s_month : s_month) + "-" + ((s_day < 10) ? "0" + s_day : s_day);
-        		String e_date = e_year + "-" + ((e_month < 10) ? "0" + e_month : e_month) + "-" + ((e_day < 10) ? "0" + e_day : e_day);
-        		items = workData.getSearchWork(search, s_date, e_date);
         	}
  
             return null;
-            
         }
  
         protected void onPostExecute(Void result) {

@@ -83,6 +83,31 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        
+        <!-- add new expense activity -->
+        <activity
+            android:name="com.crystal.shummers.AddNewExpense"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <!-- expenses activity -->
+        <activity
+            android:name="com.crystal.shummers.ExpenseList"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
     </application>
 
 </manifest>

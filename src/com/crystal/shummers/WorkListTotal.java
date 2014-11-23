@@ -1,11 +1,8 @@
 package com.crystal.shummers;
 
-import java.math.RoundingMode;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.List;
-import java.util.Locale;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -60,6 +57,12 @@ public class WorkListTotal extends BaseActivity {
 		build();
 	}
 	
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		super.onBackPressed();
+		overridePendingTransition (R.anim.open_main, R.anim.close_next);
+	}
 
 	private void build(){
 		

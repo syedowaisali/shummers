@@ -6,6 +6,7 @@
     android:orientation="vertical" >
     
     <LinearLayout
+        android:id="@+id/wti_wrapper"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:background="#0a0a0a"

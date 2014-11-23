@@ -23,10 +23,10 @@ abstract public class ShummersData extends SQLiteAssetHelper{
 	protected static final String WT_WORK_DESC   = "work_desc";
 	
 	// expense table column name
-	protected static final String EX_ID 		= "id";
-	protected static final String EX_CREATED_ON = "created_on";
-	protected static final String EX_AMOUNT 	= "amount";
-	protected static final String EX_EXP_DESC   = "exp_desc";
+	protected static final String EXP_ID 		 = "id";
+	protected static final String EXP_CREATED_ON = "created_on";
+	protected static final String EXP_AMOUNT 	 = "amount";
+	protected static final String EXP_DESC       = "exp_desc";
 
 	// constructor
 	public ShummersData(Context context){

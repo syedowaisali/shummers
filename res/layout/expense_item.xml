@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#222222"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="3dp"
+        android:orientation="horizontal"
+        android:background="#25a0ff">
+        
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal" >
+        
+        <TextView
+	        android:id="@+id/eli_date"
+	        android:layout_width="0dp"
+	        android:layout_height="match_parent"
+	        android:textSize="15sp"
+	        android:gravity="center"
+	        android:background="#343434"
+	        android:textColor="#fff"
+	        android:layout_weight="1"
+	        android:text="14 Nov, 2014" />
+        
+        <TextView
+	        android:id="@+id/eli_amount"
+	        android:layout_width="0dp"
+	        android:layout_height="match_parent"
+	        android:textSize="15sp"
+	        android:gravity="center"
+	        android:background="#474747"
+	        android:textColor="#fff"
+	        android:layout_weight="1"
+	        android:text="Rs 4000" />
+	
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/eli_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:background="#000000"
+        android:textColor="#fff"
+        android:padding="15dp"
+        android:text="Syed Owais Ali Syed Owais Ali Syed Owais Ali Syed Owais Ali" />
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#5b5b5b"
+        android:orientation="horizontal" >
+        
+    </LinearLayout>
+
+</LinearLayout>

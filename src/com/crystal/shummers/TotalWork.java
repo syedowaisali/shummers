@@ -49,7 +49,7 @@ public class TotalWork {
 	}
 	
 	public void setAllExpense(int all_expense){
-		getInstance().all_expense = all_expense;
+		getInstance().all_expense += all_expense;
 	}
 	
 	public void reset(){

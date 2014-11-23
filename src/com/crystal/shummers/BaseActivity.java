@@ -23,6 +23,7 @@ public abstract class BaseActivity extends ActionBarActivity{
 	ConnectionDetector cd;
 	AppHelper appHelper;
 	WorkData workData;
+	ExpenseData expenseData;
 	ProgressDialog pDialog;
 	ServiceHandler sh;
 	public String progressMessage;
@@ -39,6 +40,7 @@ public abstract class BaseActivity extends ActionBarActivity{
 		cd = new ConnectionDetector(this);
 		appHelper = new AppHelper();
 		workData = new WorkData(this);
+		expenseData = new ExpenseData(this);
 		// creating service handler class instance
 		sh = new ServiceHandler();
 	}

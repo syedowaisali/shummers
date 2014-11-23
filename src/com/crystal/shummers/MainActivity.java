@@ -18,7 +18,7 @@ public class MainActivity extends BaseActivity {
 	
 	// goto add new expense activity
 	public void gotoAddNewExp(View v){
-		toast("new expense");
+		gotoActivity(AddNewExpense.class);
 	}
 	
 	// goto view all work activity
@@ -28,7 +28,7 @@ public class MainActivity extends BaseActivity {
 	
 	// goto view all expenses activity
 	public void gotoViewExp(View v){
-		toast("all expenses");
+		gotoActivity(ExpenseList.class);
 	}
 
 	@Override
